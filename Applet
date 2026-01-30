@@ -1,0 +1,27 @@
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class SmartHomeApplet extends Applet implements ActionListener {
+
+    Button onBtn, offBtn;
+
+    public void init() {
+        onBtn = new Button("ON");
+        offBtn = new Button("OFF");
+
+        add(onBtn);
+        add(offBtn);
+
+        onBtn.addActionListener(this);
+        offBtn.addActionListener(this);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == onBtn) {
+            setBackground(Color.YELLOW);
+        } else {
+            setBackground(Color.BLACK);
+        }
+    }
+}
