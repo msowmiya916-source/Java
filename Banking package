@@ -1,0 +1,28 @@
+package com.bank.finance;
+
+public interface InterestRate {
+    double calculateInterest(double amount);
+}
+import com.bank.finance.InterestRate;
+
+class SavingsAccount implements InterestRate {
+    public double calculateInterest(double amount) {
+        return amount * 0.04;
+    }
+}
+
+class LoanAccount implements InterestRate {
+    public double calculateInterest(double amount) {
+        return amount * 0.08;
+    }
+}
+
+public class BankMain {
+    public static void main(String[] args) {
+        InterestRate savings = new SavingsAccount();
+        InterestRate loan = new LoanAccount();
+
+        System.out.println("Savings Interest: " + savings.calculateInterest(10000));
+        System.out.println("Loan Interest: " + loan.calculateInterest(10000));
+    }
+}
